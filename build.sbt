@@ -9,9 +9,6 @@ lazy val commonSetting = Seq(
 )
 
 lazy val single_core_dao = (project in file("single-core-dao"))
-  .settings(commonSetting)
-  .dependsOn(single_core_domain)
-
-lazy val single_core_domain = (project in file("single-core-domain"))
   .settings(commonSetting,
-    libraryDependencies ++= common)
+    libraryDependencies ++= daoDependencies)
+
