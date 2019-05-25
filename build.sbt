@@ -12,3 +12,6 @@ lazy val single_core_dao = (project in file("single-core-dao"))
   .settings(commonSetting,
     libraryDependencies ++= daoDependencies)
 
+lazy val single_core_web = (project in file("single-core-web")).enablePlugins(PlayScala)
+  .settings(commonSetting,
+    libraryDependencies ++= guice +: webDependencies )

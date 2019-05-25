@@ -17,6 +17,7 @@ object Dependencies {
     val slick_joda_mapper = "2.4.0"
     //    val slf4j_nop = "1.6.4"
     val mysql_connector = "8.0.16"
+    val scalatestplus_play = "4.0.2"
   }
 
   // 常用配置
@@ -39,6 +40,8 @@ object Dependencies {
   val logback_classic = "ch.qos.logback" % "logback-classic" % v.logback_classic
   val scala_logging = "com.typesafe.scala-logging" %% "scala-logging" % v.scala_logging
 
+  //web
+  val scalatestplus_play = "org.scalatestplus.play" %% "scalatestplus-play" % v.scalatestplus_play % Test
 
   private lazy val commonDependencies = Seq(
     joda_time,
@@ -58,4 +61,6 @@ object Dependencies {
   )
 
   lazy val daoDependencies = commonDependencies ++ slickDependencies
+
+  lazy val webDependencies = Seq(scalatestplus_play)
 }

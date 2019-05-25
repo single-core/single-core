@@ -44,12 +44,10 @@ class TasksTable(dbTag: Tag) extends Table[Task](dbTag, "TASK") {
 object TaskType extends Enumeration {
   val TaskType = Value
   val QuickTask, GlassTask = Value
-
 }
 
 object TaskStatus extends Enumeration {
   val TaskStatus = Value
   val CREATE, TODO, DOING, DONE = Value
-
 }
 
