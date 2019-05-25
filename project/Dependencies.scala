@@ -13,10 +13,12 @@ object Dependencies {
     val logback_classic = "1.2.3"
     val scala_logging = "3.9.2"
 
-    val slick = "3.3.0"
     val slick_joda_mapper = "2.4.0"
-    //    val slf4j_nop = "1.6.4"
+    val play_slick = "4.0.1"
+    val play_slick_evolutions = "4.0.1"
     val mysql_connector = "8.0.16"
+    val h2_connector = "1.4.199"
+
     val scalatestplus_play = "4.0.2"
   }
 
@@ -25,16 +27,17 @@ object Dependencies {
   val joda_time = "joda-time" % "joda-time" % v.joda_time
   val joda_convert = "org.joda" % "joda-convert" % v.joda_convert
 
-  // dao
-  val slick = "com.typesafe.slick" %% "slick" % v.slick
-  val slick_hikaricp = "com.typesafe.slick" %% "slick-hikaricp" % v.slick
+  // 数据库连接
+  //  val mysql_connector = "mysql" % "mysql-connector-java" % v.mysql_connector
+  val h2_connector = "com.h2database" % "h2" % v.h2_connector
+  val play_slick = "com.typesafe.play" %% "play-slick" % v.play_slick
+  val play_slick_evolutions = "com.typesafe.play" %% "play-slick-evolutions" % v.play_slick_evolutions
   val slick_joda_mapper = "com.github.tototoshi" %% "slick-joda-mapper" % v.slick_joda_mapper
-  //  val slf4j_nop = "org.slf4j" % "slf4j-nop" % "1.6.4" % v.slf4j_nop
-  val mysql_connector = "mysql" % "mysql-connector-java" % v.mysql_connector
 
   // 测试
-  val scalacheck = "org.scalacheck" %% "scalacheck" % v.scalacheck % "test"
-  val scalatest = "org.scalatest" %% "scalatest" % v.scalatest % "test"
+  val scalacheck = "org.scalacheck" %% "scalacheck" % v.scalacheck % Test
+  val scalatest = "org.scalatest" %% "scalatest" % v.scalatest % Test
+  val play_spec2 = "com.typesafe.play" %% "play-specs2" % _root_.play.core.PlayVersion.current % Test
 
   // 日志
   val logback_classic = "ch.qos.logback" % "logback-classic" % v.logback_classic
@@ -54,10 +57,12 @@ object Dependencies {
   )
 
   private lazy val slickDependencies = Seq(
-    slick,
-    //    slf4j_nop,
-    slick_hikaricp,
-    slick_joda_mapper
+//    mysql_connector,
+    h2_connector,
+    play_slick,
+    play_slick_evolutions,
+    slick_joda_mapper,
+    play_spec2
   )
 
   lazy val daoDependencies = commonDependencies ++ slickDependencies
