@@ -25,9 +25,9 @@ class TaskDaoSpec extends Specification {
       )
 
       Await.result(Future.sequence(testTasks.map(dao.insert)), 1 seconds)
-      val sotredCats = Await.result(dao.all(), 1 seconds)
+      val storedTasks = Await.result(dao.findAll(), 1 seconds)
 
-      sotredCats.size must equalTo(testTasks.size)
+      storedTasks.size must equalTo(testTasks.size)
     }
   }
 }

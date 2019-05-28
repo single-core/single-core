@@ -26,6 +26,7 @@ object Dependencies {
   val config = "com.typesafe" % "config" % v.config
   val joda_time = "joda-time" % "joda-time" % v.joda_time
   val joda_convert = "org.joda" % "joda-convert" % v.joda_convert
+  val play_json_joda = "com.typesafe.play" %% "play-json-joda" % _root_.play.core.PlayVersion.current
 
   // 数据库连接
   //  val mysql_connector = "mysql" % "mysql-connector-java" % v.mysql_connector
@@ -53,11 +54,12 @@ object Dependencies {
     scalacheck,
     scalatest,
     logback_classic,
-    scala_logging
+    scala_logging,
+    play_json_joda
   )
 
   private lazy val slickDependencies = Seq(
-//    mysql_connector,
+    //    mysql_connector,
     h2_connector,
     play_slick,
     play_slick_evolutions,
